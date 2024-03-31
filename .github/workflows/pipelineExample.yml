@@ -1,0 +1,23 @@
+name: Deployment pipeline
+## variable en on
+on:
+ push:
+   branches: 
+    - master
+
+jobs:
+ deploy:
+  runs-on: ubunto-latest
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4.1.2
+      with:
+       fetch-depth: 0
+    - name: build
+      uses: fwilhe2/setup-kotlin@main
+      with:
+        script: |
+            #!/usr/bin/env kotlin
+            //more kotlin script code here
+      
+      
